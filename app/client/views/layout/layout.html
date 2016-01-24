@@ -1,0 +1,133 @@
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+	<title>
+	  Field Methods
+	</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<template name="layout">
+	{{#if currentUser}}
+		{{> PrivateLayout}}
+	{{else}}
+		{{> PublicLayout}}
+	{{/if}}
+</template>
+
+<template name="PublicLayout">
+	<div id="content" class="sticky-wrapper">
+		<nav>
+			<a href="#!" class="brand-logo center">
+			  Field Methods
+			</a>
+			<div id="menu" class="nav-wrapper">
+				{{> PublicLayoutLeftMenu}}{{> PublicLayoutRightMenu}}
+			</div>
+		</nav>
+		{{> yield}}
+	</div>
+	<div id="footer" class="sticky-footer">
+	</div>
+</template>
+
+<template name="PublicLayoutLeftMenu">
+	<ul id="menu-items" class="">
+		<li id="menu-item-simple">
+			<a class="{{menuItemClass 'home_public'}}" href="{{pathFor 'home_public'}}">
+				<i class="material-icons left">
+					store
+				</i>
+				Home
+			</a>
+		</li>
+	</ul>
+</template>
+
+<template name="PublicLayoutRightMenu">
+	<ul id="menu-items" class="right">
+		<li id="menu-item-simple">
+			<a class="{{menuItemClass 'register'}}" href="{{pathFor 'register'}}">
+				<i class="material-icons left">
+					assignment_ind
+				</i>
+				Register
+			</a>
+		</li>
+		<li id="menu-item-simple">
+			<a class="{{menuItemClass 'login'}}" href="{{pathFor 'login'}}">
+				<i class="material-icons left">
+					lock_open
+				</i>
+				Login
+			</a>
+		</li>
+	</ul>
+</template>
+
+<template name="PrivateLayout">
+	<div id="content" class="sticky-wrapper">
+		<nav>
+			<a href="#!" class="brand-logo center">
+			  Field Methods
+			</a>
+			<div id="menu" class="nav-wrapper">
+				{{> PrivateLayoutLeftMenu}}{{> PrivateLayoutRightMenu}}
+			</div>
+		</nav>
+		{{> yield}}
+	</div>
+	<div id="footer" class="sticky-footer">
+	</div>
+</template>
+
+<template name="PrivateLayoutLeftMenu">
+	<ul id="menu-items" class="">
+    <!--
+		<li id="menu-item-simple">
+			<a class="{{menuItemClass 'home_private'}}" href="{{pathFor 'home_private'}}">
+				<i class="material-icons left">
+					home
+				</i>
+				Home
+			</a>
+		</li>
+		-->
+    <li id="menu-item-simple">
+			<a class="{{menuItemClass 'home_private'}}" href="{{pathFor 'home_private'}}">
+				<i class="material-icons left">
+          view_list
+				</i>
+			  Forms
+			</a>
+		</li>
+	</ul>
+</template>
+
+<template name="PrivateLayoutRightMenu">
+	<ul id="menu-items" class="right">
+		<li id="menu-item-simple">
+			<a class="{{menuItemClass 'admin'}}" href="{{pathFor 'admin'}}">
+				<i class="material-icons left">
+					brightness_auto
+				</i>
+				Admin
+			</a>
+		</li>
+		<li id="menu-item-simple">
+			<a class="{{menuItemClass 'user_settings'}}" href="{{pathFor 'user_settings'}}">
+				<i class="material-icons left">
+					settings
+				</i>
+				Settings
+			</a>
+		</li>
+		<li id="menu-item-simple">
+			<a class="{{menuItemClass 'logout'}}" href="{{pathFor 'logout'}}">
+				<i class="material-icons left">
+					power_settings_new
+				</i>
+				Logout
+			</a>
+		</li>
+	</ul>
+</template>
+

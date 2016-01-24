@@ -1,0 +1,78 @@
+<template name="AdminUsersInsert">
+	<div class="container">
+		<div id="page_menu" class="pull-right">
+		</div>
+	</div>
+	{{> AdminUsersInsertInsertForm}}
+</template>
+
+<template name="AdminUsersInsertInsertForm">
+	<div id="admin-users-insert-insert-form" class="container ">
+		<h4>
+			Add new user
+		</h4>
+		<form class="form form_AdminUsersInsertInsertForm" role="form">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}		
+		
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-profile-name">
+				<div class="input-field col s12">
+					<input type="text" name="profile.name" value="" class="form-control" autofocus="autofocus" required="required">
+					<label class="{{#if ''}}active{{/if}}" for="profile.name">
+						Name
+					</label>
+				</div>
+				<span id="help-text" class="help-block">
+				</span>
+				<span id="error-text" class="help-block">
+				</span>
+			</div>
+			<div class="form-group  field-profile-email">
+				<div class="input-field col s12">
+					<input type="text" name="profile.email" value="" class="form-control" required="required" data-type="email">
+					<label class="{{#if ''}}active{{/if}}" for="profile.email">
+						E-mail
+					</label>
+				</div>
+				<span id="help-text" class="help-block">
+				</span>
+				<span id="error-text" class="help-block">
+				</span>
+			</div>
+			<div class="form-group  field-password">
+				<div class="input-field col s12">
+					<input type="password" name="password" value="" class="form-control">
+					<label class="{{#if ''}}active{{/if}}" for="password">
+						Password
+					</label>
+				</div>
+				<span id="help-text" class="help-block">
+				</span>
+				<span id="error-text" class="help-block">
+				</span>
+			</div>
+			<div>
+				<div class="input-field col s12 submit-div">
+					<button id="form-submit-button" class="btn waves-effect waves-light" type="submit">
+						<i class="material-icons right">
+							check
+						</i>
+						Save
+					</button>
+					<a href="#" id="form-cancel-button" class="btn">
+						Cancel
+					</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+

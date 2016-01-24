@@ -1,0 +1,26 @@
+<template name="FormsView">
+  <div class="container">
+    <table class="striped">
+      <thead>
+      <tr>
+        <th data-field="Phonemic">Phonemic</th>
+        <th data-field="Phonetic">Phonetic</th>
+        <th data-field="Gloss">Gloss</th>
+        <th data-field="Tags">Tags</th>
+        <th data-field="DateCollected">Date Collected</th>
+      </tr>
+      </thead>
+      <tbody>
+        {{#each forms}}
+          <tr>
+            <td>{{phonemic}}</td>
+            <td>{{phonetic}}</td>
+            <td>{{gloss}}</td>
+            <td>{{tags}}</td>
+            <td>{{dateCollected}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</template>

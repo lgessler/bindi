@@ -1,0 +1,66 @@
+<template name="AdminUsersDetails">
+	<div class="container">
+		<div id="page_menu" class="pull-right">
+		</div>
+	</div>
+	{{> AdminUsersDetailsDetailsForm}}
+</template>
+
+<template name="AdminUsersDetailsDetailsForm">
+	<div id="admin-users-details-details-form" class="container ">
+		<div id="form-back-button" class="waves-effect waves-light btn">
+			<i class="material-icons left">
+				reply
+			</i>
+			Back
+		</div>
+		<h4>
+			User details
+		</h4>
+		<form class="form form_AdminUsersDetailsDetailsForm" role="form">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}		
+		
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-profile-name">
+				<div class="input-field col s12">
+					<input readonly id="profile.name" value="{{admin_user.profile.name}}" type="text">
+					<label class="{{#if admin_user.profile.name}}active{{/if}}" for="profile.name">
+						Name
+					</label>
+				</div>
+			</div>
+			<div class="form-group  field-profile-email">
+				<div class="input-field col s12">
+					<input readonly id="profile.email" value="{{admin_user.profile.email}}" type="text">
+					<label class="{{#if admin_user.profile.email}}active{{/if}}" for="profile.email">
+						E-mail
+					</label>
+				</div>
+			</div>
+			<div class="form-group  field-roles">
+				<div class="input-field col s12">
+					<input readonly id="roles" value="{{admin_user.roles}}" type="text">
+					<label class="{{#if admin_user.roles}}active{{/if}}" for="roles">
+						Role
+					</label>
+				</div>
+			</div>
+			<div>
+				<div class="input-field col s12 submit-div">
+					<a href="#" id="form-close-button" class="btn green">
+						OK
+					</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+
