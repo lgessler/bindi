@@ -6,3 +6,24 @@ button[type="submit"]:focus {
     color: #000000;
 }
 
+@font-face {
+    font-family: Charis;
+    src: url(/CharisSIL-R.ttf);
+}
+
+.ipa-cell {
+    width:40px;
+    height:20px;
+}
+
+.ipa-table {
+    table-layout: fixed;
+    max-width: 400px;
+    padding-top: 20px;
+}
+
+/* not satisfactory right now--diacritics don't work with flap and wedge
+.ipa {
+    font-family: Charis, serif;
+}
+*/

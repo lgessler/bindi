@@ -1,7 +1,31 @@
 <template name="FormsAdd">
-  <div class="container">
+  <div class="container" style="float: left;">
+
     <div class="row">
-      <form id="#theForm" class="col s10" autocomplete="off">
+      <div class="col s4" >
+        <table class="bordered responsive-table">
+          <thead>
+            <tr>
+              <th data-field="Phonemic">Phonemic</th>
+              <th data-field="Phonetic">Phonetic</th>
+              <th data-field="Gloss">Gloss</th>
+              <th data-field="Gloss"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each mostRecentForms}}
+              <tr>
+                <td>{{phonemic}}</td>
+                <td>{{phonetic}}</td>
+                <td>{{gloss}}</td>
+                <td><i class="material-icons tiny">delete</i></td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+
+      <form id="#theForm" class="col s8" autocomplete="off">
         <!-- Chrome 47 on OSX El Capitan (at least)  doesn't honor autocomplete="off". So give it these inputs
              (which it will happily fill out, but are hidden from the user) and we get the same effect. -->
         <input style="display:none">
@@ -10,7 +34,7 @@
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix">hearing</i>
-            <input disabled id="phonemic" type="text" class="validate {{errorClass 'phonemic'}}">
+            <input disabled id="phonemic" type="text" class="ipa validate {{errorClass 'phonemic'}}">
             <label class="{{labelErrorClass 'phonemic'}}" data-error="Add at least one form.">
               Phonemic Transcription
             </label>
@@ -20,7 +44,7 @@
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix">mic</i>
-            <input id="phonetic" type="text" class="validate {{errorClass 'phonetic'}}">
+            <input id="phonetic" type="text" class="ipa validate {{errorClass 'phonetic'}}">
             <label class="{{labelErrorClass 'phonetic'}}" data-error="Add at least one form.">Phonetic Transcription</label>
           </div>
         </div>
@@ -46,13 +70,28 @@
           </div>
         </div>
 
+
         <button class="btn waves-effect waves-light" type="submit" name="action">Submit
           <i class="material-icons right">send</i>
         </button>
-
+        <a id="togglebtn" class="btn right">Hide Key Chart</a>
       </form>
-      <div class="col s2">
+    </div>
 
+    <div class="row">
+      <div id="bindings-table" class="col s4 offset-s8 card hoverable white-text teal brighten-2" style="float: right;">
+        <div class="card-content">
+          <table class="ipa-table">
+            {{#each noModRows}}
+              <tr>
+                <td class="ipa-cell">{{a}}</td>
+                <td class="ipa-cell">{{b}}</td>
+                <td class="ipa-cell">{{c}}</td>
+                <td class="ipa-cell">{{d}}</td>
+              </tr>
+            {{/each}}
+          </table>
+        </div>
       </div>
     </div>
   </div>

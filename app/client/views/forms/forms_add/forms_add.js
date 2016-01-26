@@ -2,6 +2,7 @@ Template.FormsAdd.onCreated(function() {
   Session.set('formsAddErrors', null);
 });
 
+
 Template.FormsAdd.helpers({
   errorClass: function(field) {
     if (!Session.get('formsAddErrors') || $("#" + field).attr('disabled'))
@@ -12,6 +13,39 @@ Template.FormsAdd.helpers({
     if (!Session.get('formsAddErrors') || $("#" + field).attr('disabled'))
         return '';
     return !!Session.get('formsAddErrors')[field] ? 'active' : '';
+  },
+  mostRecentForms: function() {
+    return Forms.find({}, {
+      limit: 5,
+      sort: {dateCreated: -1}
+    });
+  },
+  noModRows: function() {
+    var strs = _.map(Keybindings.no_mod, function(val, key) {
+      return key + " → " + val
+    });
+
+    var result = [];
+    for (var i = 0; i < strs.length; i += 4) {
+      var row = strs.slice(i, i + 4);
+      result.push({
+        a: row[0],
+        b: row[1],
+        c: row[2],
+        d: row[3]
+      });
+    }
+
+    return result;
+  },
+  shiftKeys: function() {
+    return _.map(Keybindings.shift, function(val, key) {
+      return {
+        k: key,
+        sep: "→",
+        v: val
+      };
+    });
   }
 });
 
@@ -46,8 +80,26 @@ Template.FormsAdd.events({
         $('#phonetic').focus();
       else
         $('#phometic').focus();
+      return Materialize.toast("Added form '" + (form.phonemic || form.phonetic) + "'", 4000);
     });
+  },
+
+  'click #togglebtn': function(e) {
+    e.preventDefault();
+    var btn = $('#togglebtn'),
+      tbl = $('#bindings-table');
+
+    console.log(tbl);
+
+    if (tbl.hasClass('hide')) {
+      tbl.removeClass('hide');
+      btn.text("Hide Key Chart");
+    } else {
+      tbl.addClass('hide');
+      btn.text("Show Key Chart");
+    }
   }
+
 });
 
 Template.FormsAdd.rendered = function() {

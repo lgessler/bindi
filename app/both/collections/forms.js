@@ -100,7 +100,9 @@ Meteor.methods({
 });
 
 // fixtures
+/*
 if (Forms.find().count() === 0) {
+
 	Forms.insert({
 		phonetic: "heiˈwʌ̃ŋ",
 		phonemic: null,
@@ -139,4 +141,4 @@ if (Forms.find().count() === 0) {
 		lastEdited: null,
 		history: []
 	});
-}
+}*/

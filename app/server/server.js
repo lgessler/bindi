@@ -175,11 +175,8 @@ Meteor.methods({
 		this.unblock();
 
 		Email.send(options);
-	},
-
-	getKeybindingsObject: function() {
-		return JSON.parse(Assets.getText("keybindings.json"));
 	}
+
 });
 
 Accounts.onCreateUser(function (options, user) {
