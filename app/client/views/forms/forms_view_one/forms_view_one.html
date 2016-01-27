@@ -1,0 +1,26 @@
+<template name="FormsViewOne">
+  <div class="container">
+    {{#with form}}
+    <table class="striped">
+      <thead>
+      <tr>
+        <th data-field="Phonemic">Phonemic</th>
+        <th data-field="Phonetic">Phonetic</th>
+        <th data-field="Gloss">Gloss</th>
+        <th data-field="Tags">Tags</th>
+        <th data-field="DateCollected">Date Collected</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span>{{phonemic}}</span></td>
+          <td><span>{{phonetic}}</span></td>
+          <td><span>{{gloss}}</span></td>
+          <td><span>{{tags}}</span></td>
+          <td><span>{{dateCollected}}</span></td>
+        </tr>
+      </tbody>
+    </table>
+    {{/with}}
+  </div>
+</template>

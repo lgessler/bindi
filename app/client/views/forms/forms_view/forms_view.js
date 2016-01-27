@@ -4,6 +4,9 @@
 
 Template.FormsView.helpers({
   "forms": function() {
-    return Forms.find();
+    return _.map(Forms.find({}, {sort: {phonetic: 1}}).fetch(), function(form) {
+      form.dateCollected = form.dateCollected.toString().split(' ').slice(1,4).join(' ');
+      return form;
+    });
   }
 });

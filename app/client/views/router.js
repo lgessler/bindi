@@ -209,4 +209,5 @@ Router.map(function () {
 	this.route("forms", {path: "/forms", controller: "FormsController"});
 	this.route("forms.view", {path: "/forms/view", controller: "FormsViewController" });
 	this.route("forms.add", {path: "/forms/add", controller: "FormsAddController" });
+	this.route("forms.viewone", {path: "/forms/:id", controller: "FormsViewOneController"});
 });

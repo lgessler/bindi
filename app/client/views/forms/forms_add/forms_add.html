@@ -2,28 +2,6 @@
   <div class="container" style="float: left;">
 
     <div class="row">
-      <div class="col s4" >
-        <table class="bordered responsive-table">
-          <thead>
-            <tr>
-              <th data-field="Phonemic">Phonemic</th>
-              <th data-field="Phonetic">Phonetic</th>
-              <th data-field="Gloss">Gloss</th>
-              <th data-field="Gloss"></th>
-            </tr>
-          </thead>
-          <tbody>
-            {{#each mostRecentForms}}
-              <tr>
-                <td>{{phonemic}}</td>
-                <td>{{phonetic}}</td>
-                <td>{{gloss}}</td>
-                <td><i class="material-icons tiny">delete</i></td>
-              </tr>
-            {{/each}}
-          </tbody>
-        </table>
-      </div>
 
       <form id="#theForm" class="col s8" autocomplete="off">
         <!-- Chrome 47 on OSX El Capitan (at least)  doesn't honor autocomplete="off". So give it these inputs
@@ -76,23 +54,45 @@
         </button>
         <a id="togglebtn" class="btn right">Hide Key Chart</a>
       </form>
-    </div>
 
-    <div class="row">
-      <div id="bindings-table" class="col s4 offset-s8 card hoverable white-text teal brighten-2" style="float: right;">
-        <div class="card-content">
-          <table class="ipa-table">
-            {{#each noModRows}}
+      <div class="col s4" >
+        <table class="bordered responsive-table">
+          <thead>
+            <tr>
+              <th data-field="Phonemic">Phonemic</th>
+              <th data-field="Phonetic">Phonetic</th>
+              <th data-field="Gloss">Gloss</th>
+              <th data-field="Gloss"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each mostRecentForms}}
               <tr>
-                <td class="ipa-cell">{{a}}</td>
-                <td class="ipa-cell">{{b}}</td>
-                <td class="ipa-cell">{{c}}</td>
-                <td class="ipa-cell">{{d}}</td>
+                <td>{{phonemic}}</td>
+                <td>{{phonetic}}</td>
+                <td>{{gloss}}</td>
+                <td><i class="material-icons tiny">delete</i></td>
               </tr>
             {{/each}}
-          </table>
+          </tbody>
+        </table>
+
+        <div id="bindings-table" class="card hoverable white-text teal brighten-2" style="float:left;">
+          <div class="card-content">
+            <table class="">
+              {{#each noModRows}}
+                <tr>
+                  <td class="">{{a}}</td>
+                  <td class="">{{b}}</td>
+                  <td class="">{{c}}</td>
+                  <td class="">{{d}}</td>
+                </tr>
+              {{/each}}
+            </table>
+          </div>
         </div>
       </div>
     </div>
+
   </div>
 </template>
