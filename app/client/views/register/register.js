@@ -41,6 +41,13 @@ Template.Register.events({
 			return false;
 		}
 
+		if(register_email.indexOf("@virginia.edu") < 0)
+		{
+			pageSession.set("errorMessage", "Sorry, only UVa students can access this site.");
+			t.find('#registeR_email').focus();
+			return false;
+		}
+
 		// check password
 		var min_password_len = 6;
 		if(!isValidPassword(register_password, min_password_len))
