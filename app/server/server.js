@@ -175,6 +175,7 @@ Meteor.methods({
 	"sendMail": function(options) {
 		this.unblock();
 
+		console.log(options);
 		Email.send(options);
 	},
 
