@@ -1,0 +1,81 @@
+<template name="FormsEdit">
+  <div class="" style="float: left;">
+
+    <div class="row">
+
+      <div class="card col s8">
+
+        <form id="#theForm" class="" autocomplete="off">
+          <!-- Chrome 47 on OSX El Capitan (at least)  doesn't honor autocomplete="off". So give it these inputs
+               (which it will happily fill out, but are hidden from the user) and we get the same effect. -->
+          <input style="display:none">
+          <input type="password" style="display:none">
+
+          {{#with form}}
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix active">hearing</i>
+              <input value="{{phonemic}}" id="phonemic" type="text" class="ipa validate {{errorClass 'phonemic'}}">
+              <label class="{{labelErrorClass 'phonemic'}} active" data-error="Add at least one form.">
+                Phonemic Transcription
+              </label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix active">mic</i>
+              <input value="{{phonetic}}" id="phonetic" type="text" class="ipa validate {{errorClass 'phonetic'}}">
+              <label class="{{labelErrorClass 'phonetic'}} active" data-error="Add at least one form.">Phonetic Transcription</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix active">description</i>
+              <input value="{{gloss}}" id="gloss" type="text" class="validate {{errorClass 'gloss'}}">
+              <label data-error="Add a gloss." class="{{labelErrorClass 'gloss'}} active">Gloss</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix active">label</i>
+              <input value="{{tags}}" id="tags" type="text" class="validate {{errorClass 'tags'}}">
+              <label class="active">Tags (comma-separated)</label>
+            </div>
+            <div class="input-field col s6" tabindex="-1">
+              <i class="material-icons prefix">event</i>
+              <input id="dateCollected" type="date" class="datepicker {{errorClass 'dateCollected'}}">
+              <label id="datelabel">Date Collected</label>
+            </div>
+          </div>
+          {{/with}}
+
+          <div class="card-action">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+              <i class="material-icons right">send</i>
+            </button>
+            <a id="togglebtn" class="btn right white-text">Hide Key Chart</a>
+          </div>
+        </form>
+      </div>
+
+      <div id="bindings-table" class="card hoverable white-text teal brighten-2 col s4" style="float:left;">
+        <div class="card-content">
+          <table class="">
+            {{#each noModRows}}
+              <tr>
+                <td class="">{{a}}</td>
+                <td class="">{{b}}</td>
+                <td class="">{{c}}</td>
+                <td class="">{{d}}</td>
+              </tr>
+            {{/each}}
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</template>

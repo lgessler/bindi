@@ -1,9 +1,11 @@
 <template name="FormsAdd">
-  <div class="container" style="float: left;">
+  <div class="" style="float: left;">
 
     <div class="row">
 
-      <form id="#theForm" class="col s8" autocomplete="off">
+      <div class="card col s8">
+
+      <form id="#theForm" class="" autocomplete="off">
         <!-- Chrome 47 on OSX El Capitan (at least)  doesn't honor autocomplete="off". So give it these inputs
              (which it will happily fill out, but are hidden from the user) and we get the same effect. -->
         <input style="display:none">
@@ -49,33 +51,44 @@
         </div>
 
 
+        <div class="card-action">
         <button class="btn waves-effect waves-light" type="submit" name="action">Submit
           <i class="material-icons right">send</i>
         </button>
-        <a id="togglebtn" class="btn right">Hide Key Chart</a>
-      </form>
+        <a id="togglebtn" class="btn right white-text">Hide Key Chart</a>
+        </div>
+      </form></div>
 
       <div class="col s4" >
-        <table class="bordered responsive-table">
-          <thead>
+        <div class="card">
+          <div class="card-title black-text">Recently Added</div>
+          <table class="bordered responsive-table card-content">
+            <thead>
             <tr>
               <th data-field="Phonemic">Phonemic</th>
               <th data-field="Phonetic">Phonetic</th>
               <th data-field="Gloss">Gloss</th>
-              <th data-field="Gloss"></th>
+              <th></th>
+              <th></th>
             </tr>
-          </thead>
-          <tbody>
+            </thead>
+            <tbody>
             {{#each mostRecentForms}}
               <tr>
                 <td>{{phonemic}}</td>
                 <td>{{phonetic}}</td>
                 <td>{{gloss}}</td>
-                <td><i class="material-icons tiny">delete</i></td>
+                <td>
+                    <a href="/forms/edit/{{_id}}"><i class="material-icons tiny">mode edit</i></a>
+                </td>
+                <td style="max-width:30px; min-width: 30px;">
+                    <i class="material-icons tiny">delete</i>
+                </td>
               </tr>
             {{/each}}
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        </div>
 
         <div id="bindings-table" class="card hoverable white-text teal brighten-2" style="float:left;">
           <div class="card-content">

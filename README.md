@@ -13,6 +13,11 @@ MIT
     * Sort by string edit distance
     * Sort by #exact matches in string, then edit distance
     * Select forms and compare
+* Export panel (get as CSV)
+* Copy form to clipboard by clicking icon
+* Concept: inquiry
+    * Collection of notes and associated forms for inquiries like "p vs b"
+    * Associated forms enumerated OR filtered by regex
 
 
 # Components used

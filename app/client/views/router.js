@@ -28,7 +28,9 @@ var privateRoutes = [
 	"logout",
 	"forms",
 	"forms.add",
-	"forms.view"
+	"forms.view",
+	"forms.viewone",
+	"forms.edit"
 ];
 
 var freeRoutes = [
@@ -210,4 +212,5 @@ Router.map(function () {
 	this.route("forms.view", {path: "/forms/view", controller: "FormsViewController" });
 	this.route("forms.add", {path: "/forms/add", controller: "FormsAddController" });
 	this.route("forms.viewone", {path: "/forms/:id", controller: "FormsViewOneController"});
+	this.route("forms.edit", {path: "/forms/edit/:id", controller: "FormsEditController"});
 });

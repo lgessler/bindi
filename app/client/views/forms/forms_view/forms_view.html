@@ -3,6 +3,7 @@
     <table class="striped">
       <thead>
       <tr>
+        <th data-field="Icon"></th>
         <th data-field="Phonemic">Phonemic</th>
         <th data-field="Phonetic">Phonetic</th>
         <th data-field="Gloss">Gloss</th>
@@ -13,8 +14,9 @@
       <tbody>
         {{#each forms}}
           <tr>
-            <td><span class="medium">{{phonemic}}</span></td>
-            <td><span class="medium">{{phonetic}}</span></td>
+            <td><a href="/forms/edit/{{_id}}"><i class="material-icons tiny">mode edit</i></a></td>
+            <td><a href="/forms/{{_id}}"><span class="medium">{{phonemic}}</span></a></td>
+            <td><a href="/forms/{{_id}}"><span class="medium">{{phonetic}}</span></a></td>
             <td><span class="medium">{{gloss}}</span></td>
             <td><span class="medium">{{tags}}</span></td>
             <td><span class="medium">{{dateCollected}}</span></td>
