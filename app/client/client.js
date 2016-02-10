@@ -40,6 +40,7 @@ Meteor.startup(function() {
     "shift": {
   	}
 	};
+	Session.set('sortArray', ['dateCollected', 1, 'phonetic', -1]);
 });
 
 App.logout = function() {
