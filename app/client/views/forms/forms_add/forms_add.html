@@ -61,37 +61,42 @@
 
       <div class="col s4" >
         <div class="card">
-          <div class="card-title black-text">Recently Added</div>
-          <table class="bordered responsive-table card-content">
-            <thead>
-            <tr>
-              <th data-field="Phonemic">Phonemic</th>
-              <th data-field="Phonetic">Phonetic</th>
-              <th data-field="Gloss">Gloss</th>
-              <th></th>
-              <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            {{#each mostRecentForms}}
+          <div class="card-content">
+            <div class="card-title black-text">Recently Added</div>
+            <table class="bordered responsive-table">
+              <thead>
               <tr>
-                <td>{{phonemic}}</td>
-                <td>{{phonetic}}</td>
-                <td>{{gloss}}</td>
-                <td>
-                    <a href="/forms/edit/{{_id}}"><i class="material-icons tiny">mode edit</i></a>
-                </td>
-                <td style="max-width:30px; min-width: 30px;">
-                    <i class="material-icons tiny">delete</i>
-                </td>
+                <th data-field="Phonemic">Phonemic</th>
+                <th data-field="Phonetic">Phonetic</th>
+                <th data-field="Gloss">Gloss</th>
+                <th></th>
+                <th></th>
               </tr>
-            {{/each}}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+              {{#each mostRecentForms}}
+                <tr>
+                  <td>{{phonemic}}</td>
+                  <td>{{phonetic}}</td>
+                  <td>{{gloss}}</td>
+                  <td>
+                      <a href="/forms/edit/{{_id}}"><i class="material-icons tiny">mode edit</i></a>
+                  </td>
+                  <td style="max-width:30px; min-width: 30px;">
+                      <i class="material-icons tiny">delete</i>
+                  </td>
+                </tr>
+              {{/each}}
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <div id="bindings-table" class="card hoverable white-text teal brighten-2" style="float:left;">
           <div class="card-content">
+            <div class="card-title">
+              Key Chart
+            </div>
             <table class="">
               {{#each noModRows}}
                 <tr>
@@ -106,6 +111,5 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>

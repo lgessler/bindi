@@ -7,13 +7,13 @@ Meteor.startup(function() {
       "r": "ɾ",
       "R": "r",
       "N": "ŋ",
-			"M": "ɲ",
+      "M": "ɲ",
       "G": "ɠ",
       "D": "ɗ",
       "B": "β",
       "S": "ʃ",
-			"J": "ɟ",
-			"?": "ʔ",
+      "J": "ɟ",
+      "?": "ʔ",
 
 
       "I": "ɪ",
@@ -40,6 +40,8 @@ Meteor.startup(function() {
     "shift": {
   	}
 	};
+
+	// for forms_view sorting
 	Session.set('sortArray', ['dateCollected', 1, 'phonetic', -1]);
 });
 
