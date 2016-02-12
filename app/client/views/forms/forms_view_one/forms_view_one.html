@@ -1,26 +1,47 @@
 <template name="FormsViewOne">
   <div class="container">
     {{#with form}}
-    <table class="striped">
-      <thead>
-      <tr>
-        <th data-field="Phonemic">Phonemic</th>
-        <th data-field="Phonetic">Phonetic</th>
-        <th data-field="Gloss">Gloss</th>
-        <th data-field="Tags">Tags</th>
-        <th data-field="DateCollected">Date Collected</th>
-      </tr>
-      </thead>
-      <tbody>
+      <!--
+    <div class="card">
+      <table class="striped">
+        <thead>
         <tr>
-          <td><span>{{phonemic}}</span></td>
-          <td><span>{{phonetic}}</span></td>
-          <td><span>{{gloss}}</span></td>
-          <td><span>{{tags}}</span></td>
-          <td><span>{{dateCollected}}</span></td>
+          <th data-field="Phonemic">Phonemic</th>
+          <th data-field="Phonetic">Phonetic</th>
+          <th data-field="Gloss">Gloss</th>
+          <th data-field="Tags">Tags</th>
+          <th data-field="DateCollected">Date Collected</th>
         </tr>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span>{{phonemic}}</span></td>
+            <td><span>{{phonetic}}</span></td>
+            <td><span>{{gloss}}</span></td>
+            <td><span>{{tags}}</span></td>
+            <td><span>{{dateCollected}}</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="card-content">
+
+      </div>
+    </div>
+      -->
+    <div class="card teal">
+      <div class="card-content white-text">
+        <a href="/forms/edit/{{_id}}" class="btn-floating btn-large red right">
+          <i class="large material-icons">mode_edit</i>
+        </a>
+        <div class="card-title">
+          <h1>{{formTitle}}</h1>
+        </div>
+        <p class="medium">{{phoneticAndPhonemic}}</p>
+        <p class="medium">{{gloss}}</p>
+        <p>Hello world!</p>
+      </div>
+    </div>
+    {{> conversation commentableId=_id}}
     {{/with}}
   </div>
 </template>
