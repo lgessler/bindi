@@ -1,0 +1,31 @@
+<template name="FormsConcordance">
+  <div class="container">
+    <form>
+      <input id="searchText" type="text">
+      <input name="group1" type="radio" id="phonetic" checked />
+      <label for="phonetic">Phonetic</label>
+      <input name="group1" type="radio" id="phonemic" />
+      <label for="phonemic">Phonemic</label>
+    </form>
+    <table class="striped">
+      <thead>
+      <tr>
+        <th data-field="" style="min-width:500px;"><a>{{textLabel}}</a></th>
+        <th data-field="Gloss"><a id="gloss">Gloss</a></th>
+        <th data-field="DateCollected"><a id="dateCollected">Date Collected</a></th>
+      </tr>
+      </thead>
+      <tbody>
+        {{#each forms}}
+          <tr>
+            <td style="min-width:500px;max-height: 20px;">
+              <a href="/forms/{{_id}}"><span class="medium"><code><pre>{{form}}</pre></code></span></a>
+            </td>
+            <td><span class="medium">{{gloss}}</span></td>
+            <td><span class="medium">{{dateCollected}}</span></td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</template>

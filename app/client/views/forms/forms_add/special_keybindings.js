@@ -2,12 +2,14 @@
  * Created by lukegessler on 1/24/16.
  */
 
-initializeKeybindings = function() {
+initializeKeybindings = function(specialFieldNames) {
   var result = Keybindings;
-  var specialFieldNames = [
-    '#phonetic',
-    '#phonemic'
-  ];
+  if(!specialFieldNames) {
+    specialFieldNames = [
+      '#phonetic',
+      '#phonemic'
+    ];
+  }
 
   // looks like this:
   // {
