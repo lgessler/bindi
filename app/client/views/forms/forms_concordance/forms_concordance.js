@@ -35,6 +35,7 @@ var pgrep = function() {
     query.phonemic = regex;
 
   var docs = Forms.find(query).fetch();
+  var j = 0;
   docs.forEach(function(doc) {
     var form;
     if (whichForm === 'Phonetic')
@@ -43,7 +44,8 @@ var pgrep = function() {
       form = doc.phonemic;
     while((occ = regex.exec(form)) != null) {
       if (maxInd < occ.index) maxInd = occ.index;
-      results.push([occ, doc]);
+      doc._id = j++;
+      results.push([occ, _.extend({}, doc)]);
     }
   });
 
@@ -52,7 +54,9 @@ var pgrep = function() {
   var mergedResults = [];
 
   console.log(" ".repeat(maxInd) + "v");
-  results.forEach(function(pair) {
+
+  for(var i = 0; i < results.length; i++) {
+    var pair = results[i];
     var occ = pair[0];
     var padding = (" ".repeat(maxInd-occ.index));
     // account for combining characters
@@ -67,7 +71,7 @@ var pgrep = function() {
     mergedResults.push(pair[1]);
 
     //console.log(padding + occ.input.substring(0, occ.index) + " " + occ.input.substring(occ.index, occ.index+1) + " " + occ.input.substring(occ.index+1));
-  });
+  }
 
   console.log(mergedResults[0]);
   return mergedResults;
