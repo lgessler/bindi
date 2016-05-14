@@ -1,5 +1,5 @@
 # Bindi
-First commit. Will be filled out later.
+Bindi was an experiment conducted during the course of Linguistic Field Methods, offered at the University of Virginia in Spring 2016. I was unhappy with other electronic fieldwork software and wanted to see what I could accomplish with a fresh start. I've put the project on ice as I think the only way for meaningful development to continue would be to do it in parallel with *actual* fieldwork so usability testing could be conducted, but basic functionality was achieved, and I'm happy with what I've made.
 
 # License
 MIT
